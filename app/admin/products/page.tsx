@@ -63,9 +63,23 @@ export default function AdminProductsPage() {
     setLoading(false)
   }
 
+  async function handleSeedProducts() {
+    if (!window.confirm('초기 제품 9개를 Firestore에 등록하시겠습니까?\n(이미 데이터가 있으면 건너뜁니다)')) return
+    setSaving(true)
+    try {
+      const res = await fetch('/api/seed-products', { method: 'POST' })
+      const json = await res.json()
+      showToast(json.message)
+      await fetchProducts()
+    } catch {
+      showToast('오류가 발생했습니다.')
+    }
+    setSaving(false)
+  }
+
   function showToast(msg: string) {
     setToast(msg)
-    setTimeout(() => setToast(''), 3000)
+    setTimeout(() => setToast(''), 4000)
   }
 
   function openAddModal() {
@@ -169,12 +183,23 @@ export default function AdminProductsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold text-gray-900">제품 관리</h1>
-        <button
-          onClick={openAddModal}
-          className="flex items-center gap-2 bg-[#2A5430] hover:bg-[#1E3D22] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
-        >
-          <span className="text-lg leading-none">+</span> 새 제품 추가
-        </button>
+        <div className="flex gap-3">
+          {products.length === 0 && (
+            <button
+              onClick={handleSeedProducts}
+              disabled={saving}
+              className="flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors disabled:opacity-60"
+            >
+              🌱 초기 제품 등록
+            </button>
+          )}
+          <button
+            onClick={openAddModal}
+            className="flex items-center gap-2 bg-[#2A5430] hover:bg-[#1E3D22] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
+          >
+            <span className="text-lg leading-none">+</span> 새 제품 추가
+          </button>
+        </div>
       </div>
 
       {loading ? (
