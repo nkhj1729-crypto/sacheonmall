@@ -7,9 +7,9 @@ import {
   doc,
   query,
   orderBy,
-  where,
 } from 'firebase/firestore'
 import { db } from './firebase'
+import { FALLBACK_PRODUCTS } from './product-fallback'
 
 export type ProductCategory = '편백수/오일' | '생활용품' | '구강/바디케어'
 export type ProductBadge = 'Best' | '특허' | 'New' | '인기 1위' | 'SALE' | null
@@ -29,27 +29,31 @@ export interface Product {
 
 const COL = 'products'
 
+// 공개 제품 목록 (Firestore 우선, 빈 경우 정적 폴백)
+// orderBy만 사용 → 복합 인덱스 불필요, visible 필터는 JS에서 처리
 export async function loadProducts(): Promise<Product[]> {
   try {
-    const q = query(
-      collection(db, COL),
-      where('visible', '==', true),
-      orderBy('order', 'asc'),
-    )
+    const q = query(collection(db, COL), orderBy('order', 'asc'))
     const snap = await getDocs(q)
-    return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Product))
+    if (snap.empty) return FALLBACK_PRODUCTS
+    return snap.docs
+      .map((d) => ({ id: d.id, ...d.data() } as Product))
+      .filter((p) => p.visible)
   } catch {
-    return []
+    // Firebase 연결 실패 시 정적 데이터 사용
+    return FALLBACK_PRODUCTS
   }
 }
 
+// 관리자용: 전체 제품 (visible 무관)
 export async function loadAllProducts(): Promise<Product[]> {
   try {
     const q = query(collection(db, COL), orderBy('order', 'asc'))
     const snap = await getDocs(q)
+    if (snap.empty) return FALLBACK_PRODUCTS
     return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Product))
   } catch {
-    return []
+    return FALLBACK_PRODUCTS
   }
 }
 
