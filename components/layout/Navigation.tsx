@@ -14,6 +14,7 @@ const navItems: NavItem[] = [
     children: [
       { label: '회사 소개',   href: '/about' },
       { label: '창업 스토리', href: '/about#story' },
+      { label: '연혁',        href: '/about/history' },
     ],
   },
   {

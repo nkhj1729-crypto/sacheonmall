@@ -8,44 +8,6 @@ export const metadata: Metadata = {
   description: '1979년부터 시작된 사천편백림의 46년 역사. 편백 치유숲을 직접 조성하고, 심재오일 특허기술로 자연의 치유를 전달합니다.',
 }
 
-const timelineItems = [
-  {
-    year: '1979',
-    title: '편백림 조성 시작',
-    desc: '선친 박상호 창업주가 경남 사천 황무지에 첫 편백 씨앗을 심기 시작. 12만㎡ 규모의 편백 치유숲 조성의 첫 걸음.',
-  },
-  {
-    year: '1990s',
-    title: '편백림 성장기',
-    desc: '20년에 걸쳐 자란 편백나무들이 본격적인 숲을 이루기 시작. 지역 주민과 방문객을 위한 무료 개방 시작.',
-  },
-  {
-    year: '2010s',
-    title: '심재오일 특허 취득',
-    desc: '국내 유일 편백 심재(心材) 오일 추출 특허 취득. 기존 잎사귀 추출 방식을 넘어선 새로운 피톤치드 기술 개발.',
-  },
-  {
-    year: '2015',
-    title: '농림부 6차산업 인증',
-    desc: '농림축산식품부로부터 6차산업 인증 획득. 1차(생산) + 2차(제조) + 3차(체험/판매)를 아우르는 종합 사업 체계 구축.',
-  },
-  {
-    year: '2018',
-    title: 'GMP 인증 취득',
-    desc: 'Good Manufacturing Practice 인증 취득. 크린룸·무균룸 시설 완비로 의약품 수준의 제조 환경 확보.',
-  },
-  {
-    year: '2020',
-    title: '아보리덤 브랜드 론칭',
-    desc: '편백 심재오일 기반 프리미엄 뷰티 브랜드 아보리덤(ABORYDERM) 공식 출시. 탈모 케어 샴푸를 시작으로 라인업 확장.',
-  },
-  {
-    year: '2026',
-    title: '공식 웹사이트 오픈',
-    desc: '사천편백림 공식 웹사이트 및 온라인 채널 전면 개편. 더 많은 고객에게 자연 치유의 가치를 전달.',
-  },
-]
-
 const storyItems = [
   {
     decade: '1970년대',
@@ -202,44 +164,29 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── TIMELINE ── */}
-      <section className="section-padding bg-forest-900">
+      {/* ── HISTORY LINK ── */}
+      <section className="py-16 bg-forest-900 border-y border-forest-700/50">
         <div className="container-wide">
-          <SectionHeader
-            label="연혁"
-            title="사천편백림의 발자취"
-          />
-
-          <div className="relative max-w-3xl mx-auto">
-            {/* vertical line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-forest-700 md:-translate-x-0.5" />
-
-            <div className="space-y-8">
-              {timelineItems.map((item, i) => (
-                <div
-                  key={item.year}
-                  className={`relative flex items-start gap-6 md:gap-0 ${
-                    i % 2 === 0
-                      ? 'md:flex-row'
-                      : 'md:flex-row-reverse'
-                  }`}
-                >
-                  {/* Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-forest-500 border-2 border-forest-700 -translate-x-1.5 mt-1.5 z-10" />
-
-                  {/* Content */}
-                  <div
-                    className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${
-                      i % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left md:ml-[calc(50%+2rem)]'
-                    }`}
-                  >
-                    <span className="inline-block text-gold font-bold text-sm mb-1">{item.year}</span>
-                    <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-                    <p className="text-forest-300 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-3xl mx-auto">
+            <div>
+              <p className="section-label">연혁</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                1979년부터 이어온 46년의 발자취
+              </h2>
+              <p className="text-forest-300 text-sm leading-relaxed">
+                편백나무 한 그루에서 시작하여 심재오일 특허, GMP 인증,<br />
+                아보리덤 브랜드 론칭까지 — 사천편백림의 모든 역사를 확인하세요.
+              </p>
             </div>
+            <Link
+              href="/about/history"
+              className="flex-shrink-0 flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-forest-700/30 group"
+            >
+              연혁 보기
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.75a.75.75 0 010 1.08l-4.5 4.75a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
