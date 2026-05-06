@@ -8,41 +8,6 @@ export const metadata: Metadata = {
   description: '1979년부터 시작된 사천편백림의 46년 역사. 편백 치유숲을 직접 조성하고, 심재오일 특허기술로 자연의 치유를 전달합니다.',
 }
 
-const storyItems = [
-  {
-    decade: '1970년대',
-    title: '황무지에 심은 첫 번째 편백',
-    desc: '경남 사천의 메마른 땅에 씨앗 하나를 심었습니다. 아무도 주목하지 않던 그 시절, 선친은 나무를 심는 것이 미래를 심는 것이라 믿었습니다. 한 그루, 두 그루, 세 그루 — 그렇게 12만㎡의 숲이 시작되었습니다.',
-    side: 'left',
-    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=1200',
-    imageAlt: '묘목을 심는 손',
-  },
-  {
-    decade: '1990~2000년대',
-    title: '숲이 되어가는 시간',
-    desc: '20년의 시간이 흘러 씨앗은 큰 나무가 되었습니다. 편백나무가 숲을 이루자 피톤치드 향기가 사천을 가득 채웠습니다. 지역 주민들이 찾아오기 시작했고, 숲은 치유의 공간이 되었습니다.',
-    side: 'right',
-    image: 'https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&q=80&w=1200',
-    imageAlt: '울창하게 자란 편백 숲',
-  },
-  {
-    decade: '2010년대',
-    title: '숲의 가치를 담는 법',
-    desc: '단순히 숲을 개방하는 것에서 한 걸음 더 나아갔습니다. 편백 심재에서 최고 품질의 피톤치드를 추출하는 특허 기술을 개발하여, 숲이 주는 치유를 제품에 담기 시작했습니다.',
-    side: 'left',
-    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=1200',
-    imageAlt: '편백 심재오일 추출 특허 기술',
-  },
-  {
-    decade: '현재',
-    title: '나무에서 제품까지, 한 지붕 아래',
-    desc: '씨앗에서 완제품까지. 사천편백림은 편백나무를 직접 심고, 기르고, 수확하고, 추출하고, 제품을 만들어 여러분께 전달합니다. 이 과정 어디에도 타협은 없습니다.',
-    side: 'right',
-    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&q=80&w=1200',
-    imageAlt: '아보리덤 천연 스킨케어 제품',
-  },
-]
-
 export default function AboutPage() {
   return (
     <>
@@ -125,46 +90,29 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── FOUNDING STORY ── */}
-      <section id="story" className="section-padding bg-cream">
+      {/* ── STORY LINK ── */}
+      <section className="py-16 bg-cream border-y border-forest-100">
         <div className="container-wide">
-          <SectionHeader
-            label="창업 스토리"
-            title="숲이 되기까지"
-            subtitle="한 알의 씨앗에서 12만㎡의 숲으로. 그리고 당신의 손 안으로."
-            light
-          />
-
-          <div className="space-y-16">
-            {storyItems.map((item, i) => (
-              <div
-                key={item.decade}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  item.side === 'right' ? 'lg:flex-row-reverse' : ''
-                }`}
-              >
-                <div className={item.side === 'right' ? 'lg:order-2' : ''}>
-                  <div className="h-64 rounded-2xl relative overflow-hidden shadow-lg">
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-forest-900/25" />
-                    <div className="absolute bottom-4 left-4 bg-forest-900/70 text-white text-sm px-3 py-1.5 rounded-lg backdrop-blur-sm">
-                      {item.decade}
-                    </div>
-                  </div>
-                </div>
-                <div className={item.side === 'right' ? 'lg:order-1' : ''}>
-                  <p className="text-xs uppercase tracking-widest text-forest-500 mb-2">{item.decade}</p>
-                  <h3 className="text-2xl font-bold text-forest-900 mb-4">{item.title}</h3>
-                  <p className="text-forest-700 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-3xl mx-auto">
+            <div>
+              <p className="text-forest-500 text-xs uppercase tracking-widest font-semibold mb-2">창업 스토리</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-forest-900 mb-2">
+                한 알의 씨앗에서 12만㎡의 숲으로
+              </h2>
+              <p className="text-forest-600 text-sm leading-relaxed">
+                1970년대 황무지에서 시작된 이야기.<br />
+                씨앗이 숲이 되고, 숲이 제품이 되기까지의 여정을 담았습니다.
+              </p>
+            </div>
+            <Link
+              href="/about/story"
+              className="flex-shrink-0 flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-forest-700/30 group"
+            >
+              스토리 보기
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.75a.75.75 0 010 1.08l-4.5 4.75a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

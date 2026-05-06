@@ -9,36 +9,6 @@ export const metadata: Metadata = {
   description: '12만㎡, 46년의 시간이 만든 편백 치유의 숲. 무료 개방, 연중 방문 가능. 피톤치드 테라피, 쑥캐기 체험, 편백숲 산책 프로그램.',
 }
 
-const programs = [
-  {
-    icon: '🌿',
-    title: '무공해 쑥캐기 체험',
-    season: '봄 시즌 (3~5월)',
-    desc: '편백림 내 자연 서식 쑥을 직접 채취하는 체험 프로그램입니다. 화학비료·농약 없이 자연 그대로 자란 쑥을 가져가실 수 있습니다. 가족 단위, 유치원·학교 단체 방문 환영합니다.',
-    cta: '예약하기',
-    ctaHref: '/contact',
-    badge: '인기',
-  },
-  {
-    icon: '🚶',
-    title: '편백숲 산책 프로그램',
-    season: '연중 상시',
-    desc: '12만㎡ 편백림을 걸으며 자연 피톤치드를 마시는 힐링 산책 코스입니다. 별도 예약 없이 자유 방문 가능하며, 입장료는 무료입니다. 반려동물 동반 입장 가능합니다.',
-    cta: '오시는 길 보기',
-    ctaHref: '/contact',
-    badge: '무료',
-  },
-  {
-    icon: '🧘',
-    title: '피톤치드 테라피',
-    season: '시즌 운영',
-    desc: '편백나무 피톤치드 고농도 구역에서 진행하는 특별 테라피 프로그램입니다. 호흡기 건강, 스트레스 해소, 면역력 강화에 도움이 됩니다. 사전 예약 필수입니다.',
-    cta: '예약하기',
-    ctaHref: '/contact',
-    badge: '사전예약',
-  },
-]
-
 export default function ForestPage() {
   return (
     <>
@@ -66,9 +36,9 @@ export default function ForestPage() {
             <Link href="/contact" className="btn-primary">
               방문 예약하기
             </Link>
-            <a href="#programs" className="btn-outline-white">
+            <Link href="/forest/programs" className="btn-outline-white">
               체험 프로그램 보기
-            </a>
+            </Link>
           </div>
 
           {/* Stat badges */}
@@ -165,44 +135,29 @@ export default function ForestPage() {
         </div>
       </section>
 
-      {/* ── EXPERIENCE PROGRAMS ── */}
-      <section id="programs" className="section-padding bg-cream">
+      {/* ── PROGRAMS LINK ── */}
+      <section className="py-16 bg-cream border-y border-forest-100">
         <div className="container-wide">
-          <SectionHeader
-            label="체험 프로그램"
-            title="숲에서 할 수 있는 것들"
-            subtitle="사천편백림에서 자연이 주는 다양한 치유를 경험하세요."
-            light
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {programs.map((program) => (
-              <div key={program.title} className="card-light overflow-hidden group">
-                <div className="relative h-48 bg-gradient-to-br from-forest-200 to-forest-300 flex items-center justify-center">
-                  <span className="text-7xl opacity-30 group-hover:scale-110 transition-transform duration-300">
-                    {program.icon}
-                  </span>
-                  <span className="absolute top-4 right-4 bg-forest-600 text-white text-xs px-3 py-1 rounded-full font-medium">
-                    {program.badge}
-                  </span>
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs text-forest-500 bg-forest-50 px-3 py-1 rounded-full font-medium">
-                      {program.season}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-forest-900 mb-3">{program.title}</h3>
-                  <p className="text-forest-700 text-sm leading-relaxed mb-6">{program.desc}</p>
-                  <Link
-                    href={program.ctaHref}
-                    className="btn-outline-forest text-sm px-6 py-2.5"
-                  >
-                    {program.cta}
-                  </Link>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-3xl mx-auto">
+            <div>
+              <p className="text-forest-500 text-xs uppercase tracking-widest font-semibold mb-2">체험 프로그램</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-forest-900 mb-2">
+                숲에서 할 수 있는 것들
+              </h2>
+              <p className="text-forest-600 text-sm leading-relaxed">
+                무공해 쑥캐기 · 편백숲 산책 · 피톤치드 테라피<br />
+                연령·계절에 맞는 다양한 체험 프로그램을 준비했습니다.
+              </p>
+            </div>
+            <Link
+              href="/forest/programs"
+              className="flex-shrink-0 flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-forest-700/30 group"
+            >
+              프로그램 보기
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.75a.75.75 0 010 1.08l-4.5 4.75a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

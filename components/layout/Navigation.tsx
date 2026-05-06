@@ -13,7 +13,7 @@ const navItems: NavItem[] = [
     href: '/about',
     children: [
       { label: '회사 소개',   href: '/about' },
-      { label: '창업 스토리', href: '/about#story' },
+      { label: '창업 스토리', href: '/about/story' },
       { label: '연혁',        href: '/about/history' },
     ],
   },
@@ -22,7 +22,7 @@ const navItems: NavItem[] = [
     href: '/forest',
     children: [
       { label: '숲 소개',      href: '/forest' },
-      { label: '체험 프로그램', href: '/forest#programs' },
+      { label: '체험 프로그램', href: '/forest/programs' },
       { label: '오시는 길',    href: '/forest/directions' },
     ],
   },
