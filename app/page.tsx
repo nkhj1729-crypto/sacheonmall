@@ -132,7 +132,7 @@ export default function HomePage() {
                 그것이 사천편백림이 드릴 수 있는 가장 정직한 약속입니다.
               </p>
               <Link
-                href="/about#story"
+                href="/about/story"
                 className="inline-flex items-center gap-2 text-sage hover:text-white transition-colors duration-200 font-medium group"
               >
                 창업 스토리 읽기
@@ -223,20 +223,19 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Product card 1 */}
             <div className="card-dark overflow-hidden group">
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1585751119414-ef2636f8aede?auto=format&fit=crop&q=80&w=800"
-                  alt="탈모 케어 샴푸"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+              <div className="relative h-56 overflow-hidden bg-forest-900">
+                <img
+                  src="/products/shampoo.png"
+                  alt="아보리덤 편백그대로 샴푸"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 to-transparent" />
                 <span className="absolute top-4 left-4 bg-forest-500/80 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                  Best Seller
+                  인기 1위
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2">탈모 케어 샴푸</h3>
+                <h3 className="text-lg font-bold text-white mb-2">아보리덤 편백그대로 샴푸</h3>
                 <p className="text-forest-300 text-sm leading-relaxed mb-4">
                   화학 샴푸는 이제 그만. 두피가 숨 쉽니다.
                 </p>
@@ -251,17 +250,16 @@ export default function HomePage() {
 
             {/* Product card 2 */}
             <div className="card-dark overflow-hidden group">
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=800"
-                  alt="편백 천연방향제"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+              <div className="relative h-56 overflow-hidden bg-forest-900">
+                <img
+                  src="/products/diffuser.png"
+                  alt="편백 방향제"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 to-transparent" />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2">편백 천연방향제</h3>
+                <h3 className="text-lg font-bold text-white mb-2">편백 방향제</h3>
                 <p className="text-forest-300 text-sm leading-relaxed mb-4">
                   화학 향이 아닌, 진짜 숲의 냄새
                 </p>
@@ -276,17 +274,13 @@ export default function HomePage() {
 
             {/* Product card 3 */}
             <div className="card-dark overflow-hidden group">
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=800"
+              <div className="relative h-56 overflow-hidden bg-forest-900">
+                <img
+                  src="/products/toothpaste.png"
                   alt="아보리덤 치약"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 to-transparent" />
-                <span className="absolute top-4 left-4 bg-gold/80 text-forest-900 text-xs px-3 py-1 rounded-full font-semibold">
-                  New
-                </span>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold text-white mb-2">아보리덤 치약</h3>
