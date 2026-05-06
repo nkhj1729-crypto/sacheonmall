@@ -81,7 +81,7 @@ export default function ProductsPage() {
             </h2>
             <p className="text-forest-200 leading-relaxed">
               라틴어 <em className="text-sage">arbor(나무)</em>와 <em className="text-sage">derm(피부)</em>의 결합.
-              나무가 피부를 치유한다는 철학이 이름에 담겨 있습니다.
+              나무가 피부를 치유한다는 철학이 이름에 담겨 있습니다.<br />
               1979년부터 직접 키운 편백나무에서 추출한 심재오일만을 핵심 원료로 사용합니다.
             </p>
           </div>

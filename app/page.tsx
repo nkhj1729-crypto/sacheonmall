@@ -123,12 +123,12 @@ export default function HomePage() {
             {/* Right: body */}
             <div className="space-y-5">
               <p className="text-forest-100 leading-relaxed text-lg">
-                사천편백림은 제품을 사기 위해 원료를 구하지 않습니다.
+                사천편백림은 제품을 사기 위해 원료를 구하지 않습니다.<br />
                 1979년부터 직접 심고 가꾼 편백나무에서 원료가 나오고,
                 그 원료로 제품이 탄생합니다.
               </p>
               <p className="text-forest-200 leading-relaxed">
-                나무를 키운 손으로 만든 제품.
+                나무를 키운 손으로 만든 제품.<br />
                 그것이 사천편백림이 드릴 수 있는 가장 정직한 약속입니다.
               </p>
               <Link
