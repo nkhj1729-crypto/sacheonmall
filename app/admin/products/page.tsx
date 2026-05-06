@@ -63,11 +63,15 @@ export default function AdminProductsPage() {
     setLoading(false)
   }
 
-  async function handleSeedProducts() {
-    if (!window.confirm('초기 제품 9개를 Firestore에 등록하시겠습니까?\n(이미 데이터가 있으면 건너뜁니다)')) return
+  async function handleSeedProducts(force = false) {
+    const msg = force
+      ? '기존 제품을 모두 삭제하고 실제 제품 11개로 재설정하시겠습니까?'
+      : '실제 제품 11개를 Firestore에 등록하시겠습니까?'
+    if (!window.confirm(msg)) return
     setSaving(true)
     try {
-      const res = await fetch('/api/seed-products', { method: 'POST' })
+      const url = force ? '/api/seed-products?force=true' : '/api/seed-products'
+      const res = await fetch(url, { method: 'POST' })
       const json = await res.json()
       showToast(json.message)
       await fetchProducts()
@@ -184,13 +188,21 @@ export default function AdminProductsPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold text-gray-900">제품 관리</h1>
         <div className="flex gap-3">
-          {products.length === 0 && (
+          {products.length === 0 ? (
             <button
-              onClick={handleSeedProducts}
+              onClick={() => handleSeedProducts(false)}
               disabled={saving}
               className="flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors disabled:opacity-60"
             >
-              🌱 초기 제품 등록
+              🌱 제품 등록
+            </button>
+          ) : (
+            <button
+              onClick={() => handleSeedProducts(true)}
+              disabled={saving}
+              className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors disabled:opacity-60"
+            >
+              🔄 데이터 재설정
             </button>
           )}
           <button
