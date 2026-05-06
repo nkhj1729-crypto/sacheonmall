@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -46,7 +46,7 @@ export default function StoryPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-80 md:h-96 flex items-end overflow-hidden">
+      <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=2000"
@@ -57,7 +57,7 @@ export default function StoryPage() {
           />
           <div className="absolute inset-0 bg-forest-900/75" />
         </div>
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">FOUNDING STORY</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">창업 스토리</h1>
           <p className="text-forest-200 mt-2 text-lg">한 알의 씨앗에서 12만㎡의 숲으로</p>

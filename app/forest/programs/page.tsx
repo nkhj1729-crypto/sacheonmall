@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -65,13 +65,13 @@ export default function ProgramsPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-80 md:h-96 flex items-end overflow-hidden">
+      <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full bg-gradient-to-br from-forest-950 via-forest-900 to-forest-800" />
           <div className="absolute top-10 right-20 w-64 h-64 rounded-full bg-forest-600/15 blur-3xl" />
           <div className="absolute bottom-8 left-16 w-44 h-44 rounded-full bg-sage/10 blur-2xl" />
         </div>
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">EXPERIENCE PROGRAMS</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">체험 프로그램</h1>
           <p className="text-forest-200 mt-2 text-lg">숲에서 할 수 있는 모든 것들</p>

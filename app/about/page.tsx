@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-80 md:h-96 flex items-end overflow-hidden">
+      <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=2000"
@@ -23,7 +23,7 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 bg-forest-900/75" />
         </div>
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">ABOUT US</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">기업소개</h1>
           <p className="text-forest-200 mt-2 text-lg">자연에서 시작된 46년의 이야기</p>

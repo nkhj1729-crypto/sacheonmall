@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -133,9 +133,9 @@ export default function ContactPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-72 md:h-80 flex items-end overflow-hidden">
+      <section className="relative h-72 md:h-80 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-forest-950 via-forest-900 to-forest-800" />
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">CONTACT US</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">문의 / 오시는 길</h1>
           <p className="text-forest-200 mt-2 text-lg">사천편백림에 궁금한 점을 물어보세요</p>

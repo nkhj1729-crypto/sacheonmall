@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 import { loadPublicNotices, type Notice } from '@/lib/notices'
@@ -28,9 +28,9 @@ export default function NoticePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-64 md:h-80 flex items-end overflow-hidden">
+      <section className="relative h-64 md:h-80 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-forest-900" />
-        <div className="relative z-10 container-wide pb-10">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">CUSTOMER CENTER</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">공지사항</h1>
         </div>

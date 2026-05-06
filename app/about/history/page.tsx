@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -69,14 +69,14 @@ export default function HistoryPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-80 md:h-96 flex items-end overflow-hidden">
+      <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full bg-gradient-to-br from-forest-950 via-forest-900 to-forest-800" />
           {/* 장식 원형 */}
           <div className="absolute top-12 right-20 w-48 h-48 rounded-full bg-forest-700/20 blur-3xl" />
           <div className="absolute bottom-8 left-16 w-32 h-32 rounded-full bg-sage/10 blur-2xl" />
         </div>
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">HISTORY</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">연혁</h1>
           <p className="text-forest-200 mt-2 text-lg">1979년 한 알의 씨앗에서 시작된 46년의 발자취</p>

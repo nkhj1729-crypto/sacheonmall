@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -50,13 +50,13 @@ export default function TechnologyPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-80 md:h-96 flex items-end overflow-hidden">
+      <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full bg-gradient-to-br from-forest-950 via-forest-900 to-forest-800" />
           <div className="absolute top-10 right-20 w-60 h-60 rounded-full bg-gold/5 blur-3xl" />
           <div className="absolute bottom-8 left-16 w-40 h-40 rounded-full bg-forest-600/20 blur-2xl" />
         </div>
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">TECHNOLOGY & CERTIFICATION</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">기술력 / 인증</h1>
           <p className="text-forest-200 mt-2 text-lg">국내 유일, 편백 심재오일 특허기술</p>

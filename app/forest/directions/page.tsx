@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -42,13 +42,13 @@ export default function DirectionsPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-80 md:h-96 flex items-end overflow-hidden">
+      <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full bg-gradient-to-br from-forest-950 via-forest-900 to-forest-800" />
           <div className="absolute top-10 right-24 w-56 h-56 rounded-full bg-forest-700/15 blur-3xl" />
           <div className="absolute bottom-6 left-12 w-36 h-36 rounded-full bg-sage/10 blur-2xl" />
         </div>
-        <div className="relative z-10 container-wide pb-12">
+        <div className="relative z-10 container-wide text-center pt-20">
           <p className="section-label">DIRECTIONS</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">오시는 길</h1>
           <p className="text-forest-200 mt-2 text-lg">경남 사천시 축동면 — 편백림이 기다립니다</p>
