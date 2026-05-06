@@ -30,9 +30,10 @@ const navItems: NavItem[] = [
     label: '기술력/인증',
     href: '/technology',
     children: [
-      { label: '특허 기술',  href: '/technology' },
-      { label: '인증 현황',  href: '/technology#certifications' },
-      { label: '연구개발',   href: '/technology/rnd' },
+      { label: '기술력 개요', href: '/technology' },
+      { label: '특허기술',    href: '/technology/patent' },
+      { label: '인증 현황',   href: '/technology/certifications' },
+      { label: '연구개발',    href: '/technology/rnd' },
     ],
   },
   {
