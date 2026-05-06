@@ -61,7 +61,7 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop Nav */}
-            <ul className="hidden lg:flex items-center gap-8">
+            <ul className="hidden lg:flex items-center gap-12">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
