@@ -181,48 +181,29 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      {/* ── R&D ── */}
-      <section className="section-padding bg-forest-900">
+      {/* ── R&D LINK ── */}
+      <section className="py-16 bg-forest-900 border-t border-forest-700/50">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative h-80 rounded-2xl overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-forest-800 to-forest-900 flex items-center justify-center">
-                <span className="text-8xl opacity-20">🧬</span>
-              </div>
-            </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-3xl mx-auto">
             <div>
               <p className="section-label">연구·개발</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 멈추지 않는 연구
               </h2>
-              <div className="space-y-4 text-forest-200 leading-relaxed">
-                <p>
-                  편백 심재오일의 효능은 지속적인 연구와 임상 데이터로 뒷받침됩니다.<br />
-                  사천편백림은 외부 연구기관과의 협력을 통해 심재오일의 효능 범위를 확장하고 있습니다.
-                </p>
-                <p>
-                  두피·모발 케어를 넘어 피부 장벽 강화, 구강 내 유해균 억제, 실내 공기 정화 등<br />
-                  다양한 분야에서 편백 심재오일의 활용 가능성을 연구하고 있습니다.
-                </p>
-                <p>
-                  2026년에는 의료기기 등급 제품 라인의 임상 연구를 진행 중입니다.<br />
-                  더 높은 기준으로, 더 넓은 영역에서 자연의 치유를 전달하겠습니다.
-                </p>
-              </div>
-
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {[
-                  { num: '1', label: '특허 보유' },
-                  { num: '4+', label: '인증 획득' },
-                  { num: '진행중', label: '임상 연구' },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center glass-card p-4">
-                    <div className="text-2xl font-bold text-gold">{stat.num}</div>
-                    <div className="text-xs text-forest-300 mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+              <p className="text-forest-300 text-sm leading-relaxed">
+                두피·모발, 피부 장벽, 구강 항균, 실내 공기 정화 등<br />
+                4개 분야에서 임상 연구를 진행 중입니다.
+              </p>
             </div>
+            <Link
+              href="/technology/rnd"
+              className="flex-shrink-0 flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-forest-700/30 group"
+            >
+              연구개발 보기
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.75a.75.75 0 010 1.08l-4.5 4.75a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

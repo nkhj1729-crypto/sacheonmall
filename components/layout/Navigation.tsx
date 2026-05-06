@@ -23,6 +23,7 @@ const navItems: NavItem[] = [
     children: [
       { label: '숲 소개',      href: '/forest' },
       { label: '체험 프로그램', href: '/forest#programs' },
+      { label: '오시는 길',    href: '/forest/directions' },
     ],
   },
   {
@@ -31,6 +32,7 @@ const navItems: NavItem[] = [
     children: [
       { label: '특허 기술',  href: '/technology' },
       { label: '인증 현황',  href: '/technology#certifications' },
+      { label: '연구개발',   href: '/technology/rnd' },
     ],
   },
   {

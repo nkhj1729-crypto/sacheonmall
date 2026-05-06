@@ -207,54 +207,29 @@ export default function ForestPage() {
         </div>
       </section>
 
-      {/* ── VISIT INFO ── */}
-      <section className="section-padding bg-forest-900">
+      {/* ── DIRECTIONS LINK ── */}
+      <section className="py-16 bg-forest-900 border-t border-forest-700/50">
         <div className="container-wide">
-          <SectionHeader
-            label="오시는 길"
-            title="사천편백림 찾아오기"
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Map placeholder */}
-            <div className="h-80 rounded-2xl bg-forest-800 border border-forest-600/30 flex flex-col items-center justify-center gap-4">
-              <svg className="w-16 h-16 text-forest-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <p className="text-forest-400 text-sm text-center">
-                지도 서비스 연동 예정<br />
-                <span className="text-forest-500 text-xs">경남 사천시 축동면 내축로 6</span>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-3xl mx-auto">
+            <div>
+              <p className="section-label">오시는 길</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                경남 사천시 축동면 내축로 6
+              </h2>
+              <p className="text-forest-300 text-sm leading-relaxed">
+                무료 입장 · 무료 주차 · 반려동물 동반 가능<br />
+                자가용, 버스, 기차, 비행기 교통편 안내를 확인하세요.
               </p>
-              <a
-                href="https://map.naver.com/v5/search/경남 사천시 축동면 내축로 6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-sm px-6 py-2"
-              >
-                네이버 지도로 보기
-              </a>
             </div>
-
-            {/* Info grid */}
-            <div className="space-y-4">
-              {[
-                { icon: '📍', label: '주소', value: '경남 사천시 축동면 내축로 6' },
-                { icon: '📞', label: '전화', value: '055-852-6520' },
-                { icon: '🕐', label: '운영시간', value: '연중 24시간 (자유 방문 가능)' },
-                { icon: '💰', label: '입장료', value: '무료' },
-                { icon: '🚗', label: '주차', value: '무료 주차 가능' },
-                { icon: '🐕', label: '반려동물', value: '동반 입장 가능 (목줄 착용 필수)' },
-              ].map((info) => (
-                <div key={info.label} className="glass-card p-4 flex items-start gap-4">
-                  <span className="text-2xl flex-shrink-0">{info.icon}</span>
-                  <div>
-                    <p className="text-xs text-forest-400 mb-0.5 uppercase tracking-wider">{info.label}</p>
-                    <p className="text-white font-medium">{info.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Link
+              href="/forest/directions"
+              className="flex-shrink-0 flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-forest-700/30 group"
+            >
+              오시는 길 보기
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l4.5 4.75a.75.75 0 010 1.08l-4.5 4.75a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
