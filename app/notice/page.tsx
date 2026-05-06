@@ -1,18 +1,29 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { loadPublicNotices, type Notice } from '@/lib/notices'
+
 export default function NoticePage() {
-  const notices = [
-    {
-      id: 1,
-      title: '사천편백림 홈페이지가 새롭게 오픈하였습니다.',
-      date: '2026.05.06',
-      isNew: true,
-    },
-    {
-      id: 2,
-      title: 'Firestore 보안 규칙 업데이트 안내 (관리자)',
-      date: '2026.05.06',
-      isNew: true,
-    },
-  ]
+  const [notices,    setNotices]    = useState<Notice[]>([])
+  const [loading,    setLoading]    = useState(true)
+  const [expandedId, setExpandedId] = useState<string | null>(null)
+
+  useEffect(() => {
+    loadPublicNotices().then((data) => {
+      setNotices(data)
+      setLoading(false)
+    })
+  }, [])
+
+  const sorted = [...notices].sort((a, b) => {
+    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  })
+
+  const isNew = (iso: string) => {
+    const diff = Date.now() - new Date(iso).getTime()
+    return diff < 1000 * 60 * 60 * 24 * 7   // 7일 이내
+  }
 
   return (
     <>
@@ -28,30 +39,51 @@ export default function NoticePage() {
       {/* LIST */}
       <section className="section-padding bg-cream min-h-[60vh]">
         <div className="container-wide max-w-3xl">
-          <div className="divide-y divide-gray-200 bg-white rounded-2xl shadow-sm overflow-hidden">
-            {notices.map((notice) => (
-              <div
-                key={notice.id}
-                className="flex items-center justify-between px-6 py-5 hover:bg-forest-50 transition-colors duration-150 cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  {notice.isNew && (
-                    <span className="text-xs font-bold text-forest-600 bg-forest-100 px-2 py-0.5 rounded-full">
-                      NEW
-                    </span>
+          {loading ? (
+            <div className="text-center py-20 text-gray-400">불러오는 중...</div>
+          ) : sorted.length === 0 ? (
+            <div className="text-center py-20 text-gray-400">등록된 공지사항이 없습니다.</div>
+          ) : (
+            <div className="divide-y divide-gray-200 bg-white rounded-2xl shadow-sm overflow-hidden">
+              {sorted.map((n) => (
+                <div key={n.id}>
+                  {/* 목록 행 */}
+                  <button
+                    onClick={() => setExpandedId(expandedId === n.id ? null : n.id)}
+                    className="w-full flex items-center justify-between px-6 py-5 hover:bg-forest-50 transition-colors duration-150 text-left"
+                  >
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
+                      {n.pinned && <span className="text-sm">📌</span>}
+                      {isNew(n.createdAt) && (
+                        <span className="text-xs font-bold text-forest-600 bg-forest-100 px-2 py-0.5 rounded-full flex-shrink-0">
+                          NEW
+                        </span>
+                      )}
+                      <p className="text-forest-900 font-medium text-sm md:text-base truncate">
+                        {n.title}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3 ml-4 flex-shrink-0">
+                      <span className="text-xs text-gray-400">
+                        {new Date(n.createdAt).toLocaleDateString('ko-KR')}
+                      </span>
+                      <span className={`text-gray-400 text-xs transition-transform duration-200 ${expandedId === n.id ? 'rotate-180' : ''}`}>
+                        ▼
+                      </span>
+                    </div>
+                  </button>
+
+                  {/* 상세 내용 */}
+                  {expandedId === n.id && (
+                    <div className="px-6 pb-6 bg-forest-50/50 border-t border-forest-100">
+                      <div className="pt-5 text-sm text-forest-800 leading-relaxed whitespace-pre-wrap">
+                        {n.content}
+                      </div>
+                    </div>
                   )}
-                  <p className="text-forest-900 font-medium text-sm md:text-base">
-                    {notice.title}
-                  </p>
                 </div>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
-                  {notice.date}
-                </span>
-              </div>
-            ))}
-          </div>
-          {notices.length === 0 && (
-            <p className="text-center text-gray-400 py-20">등록된 공지사항이 없습니다.</p>
+              ))}
+            </div>
           )}
         </div>
       </section>

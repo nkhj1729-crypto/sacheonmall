@@ -5,20 +5,22 @@ import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 const NAV_ITEMS = [
-  { icon: '📊', label: '대시보드', href: '/admin' },
+  { icon: '📊', label: '대시보드',     href: '/admin' },
+  { icon: '📦', label: '제품 관리',    href: '/admin/products' },
+  { icon: '📢', label: '공지사항',     href: '/admin/notices' },
+  { icon: '📬', label: '문의 관리',    href: '/admin/inquiries' },
   { icon: '📝', label: '블로그 게시물', href: '/admin/posts' },
-  { icon: '📦', label: '제품 관리', href: '/admin/products' },
-  { icon: '📬', label: '문의 관리', href: '/admin/inquiries' },
   { icon: '🌲', label: '체험 프로그램', href: '/admin/programs' },
 ]
 
 const PAGE_TITLES: Record<string, string> = {
-  '/admin': '대시보드',
-  '/admin/posts': '블로그 게시물',
-  '/admin/posts/new': '새 게시물 작성',
-  '/admin/products': '제품 관리',
+  '/admin':           '대시보드',
+  '/admin/products':  '제품 관리',
+  '/admin/notices':   '공지사항 관리',
   '/admin/inquiries': '문의 관리',
-  '/admin/programs': '체험 프로그램',
+  '/admin/posts':     '블로그 게시물',
+  '/admin/posts/new': '새 게시물 작성',
+  '/admin/programs':  '체험 프로그램',
 }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

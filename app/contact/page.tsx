@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import SectionHeader from '@/components/ui/SectionHeader'
+import { submitInquiry } from '@/lib/inquiries'
 
 const inquiryTypes = [
   { value: '', label: '문의 유형을 선택해주세요' },
@@ -91,14 +92,24 @@ export default function ContactPage() {
     return newErrors
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const newErrors = validate()
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
       return
     }
-    setSubmitted(true)
+    const ok = await submitInquiry({
+      inquiryType: formData.inquiryType,
+      company:     formData.company,
+      name:        formData.name,
+      phone:       formData.phone,
+      email:       formData.email,
+      message:     formData.message,
+      createdAt:   new Date().toISOString(),
+    })
+    if (ok) setSubmitted(true)
+    else alert('제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
   }
 
   const handleChange = (
